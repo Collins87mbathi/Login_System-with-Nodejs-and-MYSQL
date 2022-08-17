@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-const dotenv = require("dotenv");
-dotenv.config();
+ const path = require("path");
+ require('dotenv').config();
 const db = require("./models/index");
 const AuthRoute = require("./routers/User");
-
+const PORT = process.env.PORT || 8000;
 
 
 //middlewares
@@ -41,6 +41,6 @@ message : errMessage,
 });
 })
 
-app.listen(8000,()=> {
-    console.log(`server is listening to port 8000`);
+app.listen(PORT,()=> {
+    console.log(`server is listening to port ${PORT}`);
 });
